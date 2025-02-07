@@ -1,4 +1,4 @@
-# AI-900 Microsoft Azure AI の基礎
+# AI-102 Microsoft Azure AI ソリューションの設計と実装
 
 # ラボマニュアル
 
