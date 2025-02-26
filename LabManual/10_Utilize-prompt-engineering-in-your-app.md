@@ -318,11 +318,18 @@ Azure OpenAI SDK を使用してデプロイされたモデルを利用する準
     ```prompt
     あなたはAIアシスタントです。
     ```
+    \* C#の場合、本環境では日本語入力がうまく読み取られない場合があります。その場合は英語で入力してください。
+    ```prompt
+    You are an AI assistant
+    ```
 
     **ユーザーメッセージ:**
 
     ```prompt
     新しい野生動物保護施設の紹介文を書いてください
+    ```
+    ```prompt
+    Write an intro for a new wildlife Rescue
     ```
 
 1. 出力を観察します。AI モデルはおそらく、野生動物救助のための良い一般的な紹介を生成します。
@@ -333,6 +340,9 @@ Azure OpenAI SDK を使用してデプロイされたモデルを利用する準
     ```prompt
     あなたはメールを書くのを手助けするAIアシスタントです。
     ```
+    ```prompt
+    You are an AI assistant helping to write emails
+    ```
 
     **ユーザーメッセージ:**
 
@@ -342,7 +352,13 @@ Azure OpenAI SDK を使用してデプロイされたモデルを利用する準
      - 象を専門に扱う
      - 当社のウェブサイトで寄付の呼びかけ
     ```
-    
+    ```prompt
+    Write a promotional email for a new wildlife rescue, including the following: 
+    - Rescue name is Contoso 
+    - It specializes in elephants 
+    - Call for donations to be given at our website
+    ```
+
     > **ヒント**: VM での自動入力が複数行のプロンプトでうまく機能しない場合があります。その場合は、次の文をコピーして貼り付けてください。
 
     ```prompt
@@ -358,6 +374,9 @@ Azure OpenAI SDK を使用してデプロイされたモデルを利用する準
     ```prompt
     あなたはメールを書くのを手助けするAIアシスタントです。
     ```
+    ```prompt
+    You are an AI assistant helping to write emails
+    ```
 
     **ユーザーメッセージ:**
 
@@ -368,11 +387,21 @@ Azure OpenAI SDK を使用してデプロイされたモデルを利用する準
         - 当社のウェブサイトで寄付の呼びかけ
         - 署名の後に、現在保護施設にいる動物のリストを表形式で含めます。これらの動物には、象、シマウマ、ゴリラ、トカゲ、ジャックラビットが含まれます。
     ```
+    ```prompt
+    Write a promotional email for a new wildlife rescue, including the following: 
+    - Rescue name is Contoso 
+    - It specializes in elephants, as well as zebras and giraffes 
+    - Call for donations to be given at our website 
+    \n Include a list of the current animals we have at our rescue after the signature, in the form of a table. These animals include elephants, zebras, gorillas, lizards, and jackrabbits.
+    ```
 
     または、
 
     ```prompt
     新しい野生動物保護施設のための宣伝メールを書いてください。次の情報を含めます：・保護施設の名前はContoso・象、シマウマ、キリンを専門に扱う・当社のウェブサイトで寄付の呼びかけ・署名の後に、現在保護施設にいる動物のリストを表形式で含めます。これらの動物には、象、シマウマ、ゴリラ、トカゲ、ジャックラビットが含まれます。
+    ```
+    ```prompt
+    Write a promotional email for a new wildlife rescue, including the following: - Rescue name is Contoso - It specializes in elephants, as well as zebras and giraffes - Call for donations to be given at our website. Include a list of the current animals we have at our rescue after the signature, in the form of a table. These animals include elephants, zebras, gorillas, lizards, and jackrabbits.
     ```
 
 
@@ -384,6 +413,9 @@ Azure OpenAI SDK を使用してデプロイされたモデルを利用する準
     ```prompt
     あなたは新しいビジネスへの関心を高めるための宣伝メールを書くのを手助けするAIアシスタントです。あなたのトーンは軽く、雑談的で、必ず少なくとも2つのジョークを含めます。
     ```
+    ```prompt
+    You are an AI assistant that helps write promotional emails to generate interest in a new business. Your tone is light, chit-chat oriented and you always include at least two jokes.
+    ```
 
     **ユーザーメッセージ:**
 
@@ -394,11 +426,21 @@ Azure OpenAI SDK を使用してデプロイされたモデルを利用する準
         - 当社のウェブサイトで寄付の呼びかけ
         - 署名の後に、現在保護施設にいる動物のリストを表形式で含めます。これらの動物には、象、シマウマ、ゴリラ、トカゲ、ジャックラビットが含まれます。
     ```
+    ```prompt
+    Write a promotional email for a new wildlife rescue, including the following: 
+    - Rescue name is Contoso 
+    - It specializes in elephants, as well as zebras and giraffes 
+    - Call for donations to be given at our website 
+    \n Include a list of the current animals we have at our rescue after the signature, in the form of a table. These animals include elephants, zebras, gorillas, lizards, and jackrabbits.
+    ```
 
     または、
 
     ```prompt
     新しい野生動物保護施設のための宣伝メールを書いてください。次の情報を含めます：・保護施設の名前はContoso・象、シマウマ、キリンを専門に扱う・当社のウェブサイトで寄付の呼びかけ・署名の後に、現在保護施設にいる動物のリストを表形式で含めます。これらの動物には、象、シマウマ、ゴリラ、トカゲ、ジャックラビットが含まれます。
+    ```
+    ```prompt
+    Write a promotional email for a new wildlife rescue, including the following: - Rescue name is Contoso - It specializes in elephants, as well as zebras and giraffes - Call for donations to be given at our website. Include a list of the current animals we have at our rescue after the signature, in the form of a table. These animals include elephants, zebras, gorillas, lizards, and jackrabbits.
     ```
 
 
@@ -433,11 +475,17 @@ Azure OpenAI SDK を使用してデプロイされたモデルを利用する準
    ```prompt
     あなたは情報を見つけるのを手助けするAIアシスタントです。プロンプトで提供されたテキストから回答を提供し、簡潔に応答します。
    ```
+    ```prompt
+    You're an AI assistant who helps people find information. You'll provide answers from the text provided in the prompt, and respond concisely.
+    ```
 
    **ユーザーメッセージ:**
 
     ```prompt
     Contosoで子どもたちに人気のある動物は何ですか？
+    ```
+    ```prompt
+    What animal is the favorite of children at Contoso?
     ```
 
 > **ヒント**: Azure OpenAI からの完全な応答を表示したい場合は、**printFullResponse** 変数を `True` に設定し、アプリを再実行できます。

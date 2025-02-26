@@ -17,7 +17,7 @@ Visual Studio Code を使用して検索アプリを開発します。アプリ�
 > **ヒント**: すでに **mslearn-knowledge-mining** リポジトリをクローンしている場合は、Visual Studio Code で開きます。そうでない場合は、次の手順に従って開発環境にクローンします。
 
 1. Visual Studio Code を起動します。
-1. パレット（SHIFT+CTRL+P）を開き、**Git: Clone** コマンドを実行して `https://github.com/MicrosoftLearning/mslearn-knowledge-mining` リポジトリをローカルフォルダにクローンします（フォルダはどこでも構いません）。
+1. パレット（SHIFT+CTRL+P）を開き、**Git: Clone** コマンドを実行して `https://github.com/ctct-edu/AI-102-lab-code.git` リポジトリをローカルフォルダにクローンします（フォルダはどこでも構いません）。
 1. リポジトリがクローンされたら、Visual Studio Code でフォルダを開きます。
 1. リポジトリ内の C# コードプロジェクトをサポートするための追加ファイルがインストールされるのを待ちます。
 
@@ -31,13 +31,13 @@ Visual Studio Code を使用して検索アプリを開発します。アプリ�
 2. 上部の検索バーで *Azure AI services* を検索し、**Azure AI services multi-service account** を選択し、次の設定で Azure AI services multi-service account リソースを作成します：
     - **サブスクリプション**: *Azure サブスクリプション*
     - **リソースグループ**: *リソースグループを選択または作成（制限付きサブスクリプションを使用している場合、新しいリソースグループを作成する権限がない場合があります。その場合は提供されたものを使用します）*
-    - **リージョン**: *地理的に近い利用可能なリージョンから選択*
+    - **リージョン**: *West US 2を選択*
     - **名前**: *一意の名前を入力*
     - **価格レベル**: Standard S0
 
 1. デプロイメントが完了したら、リソースに移動し、**概要** ページで **サブスクリプション ID** と **場所** を確認します。これらの値は、後の手順で必要になります。
-1. Visual Studio Code で **Labfiles/02-search-skill** フォルダを展開し、**setup.cmd** を選択します。このバッチスクリプトを使用して、必要な Azure リソースを作成するために必要な Azure コマンドラインインターフェイス（CLI）コマンドを実行します。
-1. **02-search-skill** フォルダを右クリックし、**統合ターミナルで開く** を選択します。
+1. Visual Studio Code で **Labfiles/12-search-skill** フォルダを展開し、**setup.cmd** を選択します。このバッチスクリプトを使用して、必要な Azure リソースを作成するために必要な Azure コマンドラインインターフェイス（CLI）コマンドを実行します。
+1. **12-search-skill** フォルダを右クリックし、**統合ターミナルで開く** を選択します。
 1. ターミナルペインで、次のコマンドを入力して、Azure サブスクリプションへの認証接続を確立します。
 
     ```powershell
@@ -52,14 +52,14 @@ Visual Studio Code を使用して検索アプリを開発します。アプリ�
     ```
 
 
-10. 出力で、リソースグループの場所に対応する **Name** 値を見つけます（例：*East US* の対応する名前は *eastus* です）。
+10. 出力で、リソースグループの場所に対応する **Name** 値を見つけます（例：*West US* の対応する名前は *westus* です）。
 
     > **重要**: **Name** 値を記録し、**location** 変数に設定します。
 
 11. **setup.cmd** スクリプトで、**subscription_id**、**resource_group**、および **location** 変数の宣言を、サブスクリプション ID、リソースグループ名、および場所名の適切な値に変更します。変更を保存します。
      > **注意** 値に空白が含まれる場合は、"で囲んでください（USキーボードの場合、Shift + *で入力できます）。
 
-12. **02-search-skill** フォルダのターミナルで、次のコマンドを入力してスクリプトを実行します：
+12. **12-search-skill** フォルダのターミナルで、次のコマンドを入力してスクリプトを実行します：
 
     ```powershell
     ./setup
@@ -87,7 +87,7 @@ Visual Studio Code を使用して検索アプリを開発します。アプリ�
 
 この演習では、Azure AI Search REST インターフェイスを使用して、これらのコンポーネントを JSON リクエストを送信して作成します。
 
-1. Visual Studio Code で **02-search-skill** フォルダ内の **create-search** フォルダを展開し、**data_source.json** を選択します。このファイルには **margies-custom-data** という名前のデータソースの JSON 定義が含まれています。
+1. Visual Studio Code で **12-search-skill** フォルダ内の **create-search** フォルダを展開し、**data_source.json** を選択します。このファイルには **margies-custom-data** という名前のデータソースの JSON 定義が含まれています。
 2. **YOUR_CONNECTION_STRING** プレースホルダーを Azure ストレージアカウントの接続文字列に置き換えます。
 
     *接続文字列は、**setup.cmd**の出力やAzure ポータルのストレージアカウントの **アクセスキー** ページから確認できます*
@@ -147,7 +147,7 @@ Visual Studio Code を使用して検索アプリを開発します。アプリ�
     - **ホスティングプラン**: Consumption
     - **サブスクリプション**: *あなたのサブスクリプション*
     - **リソースグループ**: *Azure AI Search リソースと同じリソースグループ*
-    - **Function App 名**: *一意の名前*
+    - **Function App 名**: **演習環境よりコピーしてください**
     - **ランタイムスタック**: Node.js
     - **バージョン**: 18 LTS
     - **リージョン**: *Azure AI Search リソースと同じリージョン*
@@ -162,7 +162,8 @@ Visual Studio Code を使用して検索アプリを開発します。アプリ�
         - **承認レベル**: Function
 
     > **注**: 関数の作成エラーが発生した場合は、ページを更新してください。リソースが正常に作成されているはずです。
-
+    > **注**: Azure AI Search リソースを作成したリージョンに、Function App リソースのデプロイに必要なクォータがない場合は、デプロイのためにサブスクリプションでクォータが利用可能な別のリージョンを選択することができます。
+    
 4. *wordcount* 関数が作成されるのを待ちます。次に、そのページで **コード + テスト** タブを選択します。
 5. デフォルトの関数コードを次のコードに置き換えます：
 
@@ -326,13 +327,13 @@ module.exports = async function (context, req) {
     }
     ```
 
-9. **Test/Run** ペインを閉じ、**wordcount** 関数ブレードで **Get function URL** をクリックします。次に、デフォルトキーの URL をクリップボードにコピーします。次の手順でこれが必要になります。
+9. **Test/Run** ペインを閉じ、**wordcount** 関数ブレードで **Get function URL** をクリックします。次に、**デフォルトキーの URL** をクリップボードにコピーします。次の手順でこれが必要になります。
 
 ## カスタムスキルを検索ソリューションに追加する
 
 次に、関数を検索ソリューションのスキルセットにカスタムスキルとして含め、それが生成する結果をインデックスのフィールドにマッピングする必要があります。
 
-1. Visual Studio Code で **02-search-skill/update-search** フォルダーを開き、**update-skillset.json** ファイルを開きます。これにはスキルセットの JSON 定義が含まれています。
+1. Visual Studio Code で **12-search-skill/update-search** フォルダーを開き、**update-skillset.json** ファイルを開きます。これにはスキルセットの JSON 定義が含まれています。
 2. スキルセットの定義を確認します。以前と同じスキルに加えて、新しい **WebApiSkill** スキル **get-top-words** が含まれています。
 3. **get-top-words** スキルの定義を編集し、**uri** 値を Azure 関数の URL に設定します (前の手順でクリップボードにコピーしたもの)。**YOUR-FUNCTION-APP-URL** を置き換えます。
 4. スキルセット定義の上部にある **cognitiveServices** 要素で、**YOUR_AI_SERVICES_KEY** プレースホルダーを Azure AI Services リソースのいずれかのキーに置き換えます。
